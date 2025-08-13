@@ -2,11 +2,13 @@ const tasksRouter = require("express").Router();
 const Task = require("../model/task.model");
 
 const getAllTasks = async (req, res) => {
+    console.log("getAllTasks...")
   const response = await Task.find({});
   res.send(response);
 };
 
 const getTask = async (req, res) => {
+    console.log("getTask...")
   const id = req.params.id;
   const response = await Task.findById(id);
 
@@ -18,6 +20,7 @@ const getTask = async (req, res) => {
 };
 
 const createTask = async (req, res) => {
+    console.log("createTask...")
   const task = req.body;
 
   try {
@@ -34,6 +37,7 @@ const createTask = async (req, res) => {
 };
 
 const deleteTask = async (req, res) => {
+    console.log("deleteTask...")
   const id = req.params.id
   const response = await Task.findByIdAndDelete(id)
 
@@ -42,6 +46,7 @@ const deleteTask = async (req, res) => {
 }
 
 const updateTask = async (req, res) => {
+    console.log("updateTask...")
   const id = req.params.id
   const updatedTask = req.body
 
